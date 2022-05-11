@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      php,cookies,session,mysql | Hexo
+      CSRF,XML,XXE,SSRF,命令执行漏洞 | Hexo
     
   </title>
   <meta name="author" content="John Doe">
@@ -100,7 +100,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「php,cookies,session,mysql」
+			「CSRF,XML,XXE,SSRF,命令执行漏洞」
 		
 	</p>
 
@@ -229,8 +229,8 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2022/04/07/php-cookies-session/" itemprop="url">
-		php,cookies,session,mysql
+	<a href="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" itemprop="url">
+		CSRF,XML,XXE,SSRF,命令执行漏洞
 	</a>
 
 		</div>
@@ -246,9 +246,9 @@
 
 	更新于
 
-	<a href="/2022/04/07/php-cookies-session/" itemprop="url">
-		<time datetime="2022-04-07T13:31:30.272Z" itemprop="dateUpdated">
-	  		2022-04-07
+	<a href="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" itemprop="url">
+		<time datetime="2022-05-06T06:55:26.973Z" itemprop="dateUpdated">
+	  		2022-05-12
 	  </time>
 	</a> 
 
@@ -266,48 +266,34 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<p>date: 2022-04-07 21:31:30<br>tags:</p>
+			<p>date: 2022-05-06 14:55:26<br>tags:</p>
 <hr>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E5%9B%BE20220427105255.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220425102105.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220425102229.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220425102612.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220425110657.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220425140753.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220425141051.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220425141405.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220425151554.png" class>
 
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314091524.png" class>
+<hr>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426080744.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426082130.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426082220.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426082340.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426082426.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426082549.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426082643.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426084125.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426085700.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426085747.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426104218.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220511202502.png" class>
+<img src="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/QQ%E6%88%AA%E5%9B%BE20220426105557.png" class>
 
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314092156.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314092720.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314092932.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314094125.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314095904.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314100111.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314100310.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314105142.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314110806.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314111059.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314111219.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314140842.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314140946.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314141306.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314141723.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314142142.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314152314.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314153144.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314153616.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314160429.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314161659.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314162125.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314163530.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314164000.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220314170435.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220315080703.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220315080853.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220315085259.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220315090012.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220315090325.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220315112620.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220315141252.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220315141421.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220315141717.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220315161913.png" class>
-<img src="/2022/04/07/php-cookies-session/QQ%E6%88%AA%E5%9B%BE20220315162319.png" class>
-	
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">读取源码php://filter/read=convert.base64-encode/resource=</span><br><span class="line"></span><br><span class="line">安装CaptfEncoder-V1</span><br><span class="line">npm install</span><br><span class="line">npm start</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">常规绕过：exec,shell_exec,system,passthru,popen,proc_open</span><br><span class="line">利用环境变量 LD_PRELOAD 绕过 （重要）</span><br><span class="line">利用 pcntl_exec 绕过</span><br><span class="line">利用 imap_open 函数任意命令执行(CVE-2018-19518 %&#125;</span><br><span class="line">利用系统组件 window com 绕过</span><br><span class="line">利用 Apache+mod_cgi+.htaccess 绕过</span><br><span class="line">利用 ImageMagick 漏洞绕过</span><br><span class="line">利用 PHP7.4 的FFI绕过</span><br><span class="line">利用 ShellShock 绕过(CVE-2014-6271 %&#125;</span><br><span class="line">蚁剑插件</span><br></pre></td></tr></table></figure>	
 		</div>
 		
 		<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
@@ -325,12 +311,8 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
-			<a href="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/" title="文件上传,包含" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2022/03/25/sqli-labs-1-3/" title="sqli-labs前1-3关" rel="next">
+			<a href="/2022/05/04/Burp%E3%80%81Sql%E6%B3%A8%E5%85%A5%EF%BC%8C%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%EF%BC%8C%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/" title="Burp、Sql注入，联合注入，报错注入" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -348,55 +330,6 @@
 <div class="relate-post">
 	
 		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" title="CSRF,XML,XXE,SSRF,命令执行漏洞">
-								CSRF,XML,XXE,SSRF,命令执行漏洞			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								五月 6日, 2022				
-							</p>
-							<p class="relate-post-content">
-								date: 2022-05-06 14:55:26tags:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1234567891011121314151617读取源码php://filter/read=convert.base6...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" title="CSRF,XML,XXE,SSRF,命令执行漏洞">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="CSRF,XML,XXE,SSRF,命令执行漏洞"/>
-							</a>
-						</div>
-					</li>												
 			
 					<li>
 						<div class="relate-post-text">
@@ -533,6 +466,69 @@ webshell分类
 							<a href="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/" title="文件上传,包含">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="文件上传,包含"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2022/04/07/php-cookies-session/" title="php,cookies,session,mysql">
+								php,cookies,session,mysql			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 7日, 2022				
+							</p>
+							<p class="relate-post-content">
+								date: 2022-04-07 21:31:30tags:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2022/04/07/php-cookies-session/" title="php,cookies,session,mysql">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="php,cookies,session,mysql"/>
 							</a>
 						</div>
 					</li>												
