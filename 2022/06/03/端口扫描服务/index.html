@@ -1,0 +1,1071 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      端口扫描服务 | Hexo
+    
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'normal',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://sariay.github.io/Random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「端口扫描服务」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2022/06/03/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E6%9C%8D%E5%8A%A1/" itemprop="url">
+		端口扫描服务
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2022/06/03/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E6%9C%8D%E5%8A%A1/" itemprop="url">
+		<time datetime="2022-06-03T00:40:06.206Z" itemprop="dateUpdated">
+	  		2022-06-03
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+						
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>date: 2022-06-03 08:40:06<br>tags:</p>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">端口扫描</span><br><span class="line">端口即服务，服务即端口</span><br><span class="line">nmap</span><br><span class="line"></span><br><span class="line">windows</span><br><span class="line">	nmap</span><br><span class="line">linux</span><br><span class="line">	kali:nmap</span><br><span class="line">	ubuntu:apt install nmap</span><br><span class="line">	centos:yum install nmap</span><br><span class="line">	源码安装：</span><br><span class="line">	wget http://www.nmap.com/download/nmap.tar.gz</span><br><span class="line">	tar -zxvf nmap.tar.gz</span><br><span class="line">	cd nmap</span><br><span class="line">	config </span><br><span class="line">	make</span><br><span class="line">	make install</span><br><span class="line">	nmap -h</span><br><span class="line">使用：</span><br><span class="line">	主机发现</span><br><span class="line">		nmap -sn 180.153.183.76 ping的方法探测主机</span><br><span class="line">		nmap -sn 192.168.10.0/24</span><br><span class="line">		nmap -Pn 180.153.183.76 不进行主机存活扫描，只端口扫描</span><br><span class="line">		nmap -sn -PE 180.153.183.76 -oX /tmp/result.xml</span><br><span class="line">		nmap -sn -PP 180.153.183.76 </span><br><span class="line">	端口探测</span><br><span class="line">		sudo nmap -Pn -sS 192.168.10.0/24</span><br><span class="line">		sudo nmap -Pn -sT 192.168.10.0/24</span><br><span class="line">		默认扫描的端口是：1-1000</span><br><span class="line">		-p21,22,25,80,8080,3389,1433,6379,7070,100-200</span><br><span class="line">		-p1-65535</span><br><span class="line">		-p-</span><br><span class="line">		nmap -O 192.168.10.1</span><br><span class="line">		nmap -A 192.168.10.1</span><br><span class="line">		nmap -Pn -sS -sV 192.168.10.0/24</span><br><span class="line">		-P0</span><br><span class="line">	漏洞探测</span><br><span class="line">		nmap --script smb-vuln-ms17-010 192.168.10.1      17010</span><br><span class="line">		nmap --script smb-check-vulns 192.168.10.1        08067</span><br><span class="line">		nmap --script ssl-heartbleed 192.168.10.1         ssl 心脏滴血</span><br><span class="line">		nmap --script ftp-brute 192.168.10.1     		  爆破</span><br><span class="line">		nmap --script=auth,vuln 192.168.10.1     		  all</span><br><span class="line">znmap GUI</span><br><span class="line">		nmap -sS -sV -T5 -A -p- 192.168.10.1 -oX c:\result.xml</span><br><span class="line">		-oN </span><br><span class="line">		-oX</span><br><span class="line">		-oG</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#强化版主机发现</span><br><span class="line">sudo nmap -sn -PE -PP -PS80,23,443,21,22,25,3389,110,445,139,143,53,135,3306,8080,1723,111,995,993,5900,1025,587,8888,199,1720,465,548,113,81,6001,10000,514,5060,179,1026,2000,8443,8000,32768,554,26,1433,49152,2001,515,8008,49154,1027,5666,646,5000,5631,631,49153,8081,2049,88,79,5800,106,2121,1110,49155,6000,513,990,5357,427,49156,543,544,5101,144,7,389,8009,3128,444,9999,5009,7070,5190,3000,5432,3986,1900,13,1029,9,6646,5051,49157,1028,873,1755,2717,4899,9100,119,37 -PA80,23,443,21,22,25,3389,110,445,139,143,53,135,3306,8080,1723,111,995,993,5900,1025,587,8888,199,1720,465,548,113,81,6001,10000,514,5060,179,1026,2000,8443,8000,32768,554,26,1433,49152,2001,515,8008,49154,1027,5666,646,5000,5631,631,49153,8081,2049,88,79,5800,106,2121,1110,49155,6000,513,990,5357,427,49156,543,544,5101,144,7,389,8009,3128,444,9999,5009,7070,5190,3000,5432,3986,1900,13,1029,9,6646,5051,49157,1028,873,1755,2717,4899,9100,119,37 180.153.183.1-48</span><br><span class="line">#端口探测</span><br><span class="line">sudo nmap -sS -Pn -n --open --min-hostgroup 4 --min-parallelism 1024 --host-timeout 30 -T4 -v  examples.com</span><br><span class="line">sudo nmap -sS -Pn -n --open --min-hostgroup 4 --min-parallelism 1024 --host-timeout 30 -T4 -v -p 1-65535 examples.com</span><br><span class="line"></span><br><span class="line">masscan -p1-65535 192.168.10.1 --rate=1000 -e eth0 &gt; ports</span><br><span class="line">ports=$(cat ports | awk -F &quot; &quot; &#x27;&#123;print $4&#125;&#x27; | awk -F &quot;/&quot; &#x27;&#123;print  $1&#125;&#x27; | sort -n | tr &#x27;\n&#x27; &#x27;,&#x27; | sed &#x27;s/,$//&#x27;)</span><br><span class="line">nmap -Pn -sV -sC -p$ports 192.168.10.1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">B/S</span><br><span class="line"></span><br><span class="line">爆破C/S服务的工具和平台</span><br><span class="line"></span><br><span class="line">	Hydra九头蛇	</span><br><span class="line">	medusa美杜莎</span><br><span class="line">C/s</span><br><span class="line"></span><br><span class="line">ftp</span><br><span class="line">ssh</span><br><span class="line">rdp</span><br><span class="line">redis</span><br><span class="line">mysql(外连)</span><br><span class="line">等</span><br><span class="line"></span><br><span class="line">hydra -h</span><br><span class="line">Supported services: adam6500 asterisk cisco cisco-enable cvs ftp[s] http[s]-&#123;head|get|post&#125; http[s]-&#123;get|post&#125;-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s] ldap3[-&#123;cram|digest&#125;md5][s] mssql mysql(v4) nntp oracle-listener oracle-sid pcanywhere pcnfs pop3[s] redis rexec rlogin rpcap rsh rtsp s7-300 sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey teamspeak telnet[s] vmauthd vnc xmpp</span><br><span class="line"></span><br><span class="line">已知账号，root</span><br><span class="line">	hydra -l root -P pwd.txt ftp://192.168.1.1</span><br><span class="line">	hydra -l root -P pwd.txt 192.168.1.1 ftp</span><br><span class="line"></span><br><span class="line">hydra  -l root -P top1000.txt -e ns -v -t 1 192.168.10.2  mysql</span><br><span class="line"></span><br><span class="line"> hydra  -P top1000.txt -e ns -v -t 5 192.168.10.101 redis</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">账号密码均不知</span><br><span class="line">	hydra -L user.txt root -P pwd.txt ftp://192.168.1.1</span><br><span class="line">	hydra -L user.txt root -P pwd.txt 192.168.1.1 ftp</span><br><span class="line">	-ens 空密码</span><br><span class="line">	-t 10 设置线程</span><br><span class="line">	-w 超时时间</span><br><span class="line">	-vV</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">弱口令TOP100：[https://github.com/estell-yf/Dict/blob/master/登录账号/TOP100.txt](https://github.com/estell-yf/Dict/blob/master/登录账号/TOP100.txt)</span><br><span class="line"></span><br><span class="line">弱口令TOP1000：[https://github.com/estell-yf/Dict/blob/master/登录账号/top1000.txt](https://github.com/estell-yf/Dict/blob/master/登录账号/top1000.txt)</span><br><span class="line"></span><br><span class="line">用户名TOP500：[https://github.com/estell-yf/Dict/blob/master/登录账号/Top500用户名.txt](https://github.com/estell-yf/Dict/blob/master/登录账号/Top500用户名.txt)</span><br><span class="line"></span><br><span class="line">键盘组合TOP100：[https://github.com/estell-yf/Dict/blob/master/登录账号/键盘组合TOP100.txt](https://github.com/estell-yf/Dict/blob/master/登录账号/键盘组合TOP100.txt)</span><br><span class="line"></span><br><span class="line">符合条件的强弱密码合集：[https://github.com/r35tart/RW_Password](https://github.com/r35tart/RW_Password)</span><br><span class="line"></span><br><span class="line">**中间件常见弱口令：**</span><br><span class="line"></span><br><span class="line">  Tomcat、Wenlogic、Jboss：[https://github.com/estell-yf/Dict/tree/master/中间件](https://github.com/estell-yf/Dict/tree/master/中间件)</span><br><span class="line"></span><br><span class="line">**数据库常见弱口令：**</span><br><span class="line"></span><br><span class="line">  MySQL、SQL Server、DB2、Mongo DB、Oracle、PostgreSQL：[https://github.com/estell-yf/Dict/tree/master/数据库](https://github.com/estell-yf/Dict/tree/master/数据库)</span><br><span class="line"></span><br><span class="line">SQLServer：[https://github.com/danielmiessler/SecLists/blob/master/Passwords/mssql-passwords-nansh0u-guardicore.txt](https://github.com/danielmiessler/SecLists/blob/master/Passwords/mssql-passwords-nansh0u-guardicore.txt)</span><br><span class="line"></span><br><span class="line">**端口服务类弱口令：**</span><br><span class="line"></span><br><span class="line">3389、FTP、POP3、RDP、SMB、SNMP、TELNET、phpmyadmin、ssh、system等：[https://github.com/estell-yf/Dict/tree/master/端口服务](https://github.com/estell-yf/Dict/tree/master/端口服务)</span><br><span class="line"></span><br><span class="line">**网络设备弱口令：**</span><br><span class="line"></span><br><span class="line">H3C、IOT、路由器、Wi-Fi、华为安全产品、国内防火墙默认密码等：[https://github.com/estell-yf/Dict/tree/master/网络设备](https://github.com/estell-yf/Dict/tree/master/网络设备)</span><br><span class="line"></span><br><span class="line">**其他弱口令：**</span><br><span class="line"></span><br><span class="line">万能密码：[https://github.com/estell-yf/Dict/tree/master/万能密码](https://github.com/estell-yf/Dict/tree/master/万能密码)</span><br><span class="line"></span><br><span class="line">后门密码：[https://github.com/estell-yf/Dict/tree/master/其他、https://github.com/3had0w/Fuzzing-Dicts/blob/master/WebShell-Password（433616）.txt](https://github.com/estell-yf/Dict/tree/master/其他、https://github.com/3had0w/Fuzzing-Dicts/blob/master/WebShell-Password（433616）.txt)</span><br><span class="line"></span><br><span class="line">强弱字典组合：[https://github.com/huyuanzhi2/password_brute_dictionary](https://github.com/huyuanzhi2/password_brute_dictionary)</span><br><span class="line"></span><br><span class="line">高效手机号码：[https://github.com/3had0w/Fuzzing-Dicts/blob/master/高效手机号码.txt](https://github.com/3had0w/Fuzzing-Dicts/blob/master/高效手机号码.txt)</span><br><span class="line"></span><br><span class="line">SNETCraker—超级弱口令检查工具</span><br><span class="line"></span><br><span class="line">下载地址：[https://github.com/shack2/SNETCracker](https://github.com/shack2/SNETCracker)</span><br><span class="line"></span><br><span class="line">WebCrack——网站后台弱口令扫描工具</span><br><span class="line"></span><br><span class="line">下载地址：[https://github.com/yzddmr6/WebCrack](https://github.com/yzddmr6/WebCrack)</span><br><span class="line"></span><br><span class="line">hydra—弱口令爆破工具</span><br><span class="line"></span><br><span class="line">下载地址：</span><br><span class="line"></span><br><span class="line">Linux：[https://www.thc.org/releases/hydra-8.3.tar.gz](https://www.thc.org/releases/hydra-8.3.tar.gz)</span><br><span class="line"></span><br><span class="line">Windows：[https://github.com/ory/hydra](https://github.com/ory/hydra)</span><br><span class="line"></span><br><span class="line">Go-x-crack—一款GO编写的常见服务的弱口令扫描工具</span><br><span class="line"></span><br><span class="line">下载地址：[https://github.com/netxfly/x-crack](https://github.com/netxfly/x-crack)</span><br><span class="line"></span><br><span class="line">domainWeakPasswdCheck—域账号弱口令审计工具</span><br><span class="line"></span><br><span class="line">下载地址：[https://github.com/chroblert/domainWeakPasswdCheck](https://github.com/chroblert/domainWeakPasswdCheck)</span><br><span class="line"></span><br><span class="line">WeblogicWeakPwd—Weblogic弱口令批量检测工具</span><br><span class="line"></span><br><span class="line">下载地址：[https://github.com/rabbitmask/WeblogicWeakPwd](https://github.com/rabbitmask/WeblogicWeakPwd)</span><br><span class="line"></span><br><span class="line">pydictor—字典创建工具</span><br><span class="line"></span><br><span class="line">下载地址：[https://github.com/LandGrey/pydictor](https://github.com/LandGrey/pydictor)</span><br><span class="line"></span><br><span class="line">中文版使用地址：[https://github.com/LandGrey/pydictor/blob/master/README_CN.md](https://github.com/LandGrey/pydictor/blob/master/README_CN.md)</span><br><span class="line"></span><br><span class="line">在线字典创建工具—针对单个账户的密码生成</span><br><span class="line"></span><br><span class="line">利用https://www.bugku.com/mima/、[https://www.bugku.com/mima/](https://www.bugku.com/mima/)</span><br><span class="line"></span><br><span class="line">白鹿社工字典生成器—社工弱口令</span><br><span class="line"></span><br><span class="line">下载地址：[https://github.com/x311/BaiLu-SED-Tool](https://github.com/x311/BaiLu-SED-Tool)</span><br><span class="line"></span><br><span class="line">BurpSuite模块</span><br><span class="line"></span><br><span class="line">jsEncrypter扩展——解决密码被加密处理问题</span><br><span class="line"></span><br><span class="line">下载地址：[https://github.com/bit4woo/reCAPTCHA）](https://github.com/bit4woo/reCAPTCHA）)</span><br><span class="line"></span><br><span class="line">reCAPTCHA扩展-验证码处理</span><br><span class="line"></span><br><span class="line">利用第三方识别服务识别验证码：[https://github.com/bit4woo/reCAPTCHA。](https://github.com/bit4woo/reCAPTCHA。)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">xray webscan --basic-crawler http://192.168.10.101:88/ --html-output vuln.html</span><br><span class="line"></span><br><span class="line">被动扫描</span><br><span class="line">在浏览器中设置代理，开着代理访问站点：代理为127.0.0.1：8080</span><br><span class="line">xray webscan --listen 127.0.0.1:8080 --html-output vuln.html</span><br></pre></td></tr></table></figure>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+		
+			<a href="/2022/05/14/%E5%B8%83%E5%B0%94,%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8%EF%BC%8C%E5%AE%BD%E5%AD%97%E8%8A%82%EF%BC%8C%E4%BA%8C%E6%AC%A1%E7%BC%96%E7%A0%81%EF%BC%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5%EF%BC%8CSQLmap%EF%BC%8CMSSql%EF%BC%8C%E8%BF%87WAF/" title="布尔，时间盲注，宽字节，二次编码，堆叠注入，SQLmap，MSSql，过WAF" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2022/05/14/%E5%B8%83%E5%B0%94,%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8%EF%BC%8C%E5%AE%BD%E5%AD%97%E8%8A%82%EF%BC%8C%E4%BA%8C%E6%AC%A1%E7%BC%96%E7%A0%81%EF%BC%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5%EF%BC%8CSQLmap%EF%BC%8CMSSql%EF%BC%8C%E8%BF%87WAF/" title="布尔，时间盲注，宽字节，二次编码，堆叠注入，SQLmap，MSSql，过WAF">
+								布尔，时间盲注，宽字节，二次编码，堆叠注入，SQLmap，MSSql，过WAF			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 14日, 2022				
+							</p>
+							<p class="relate-post-content">
+								date: 2022-05-14 16:15:08tags:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+补充https://habaijian.com/https://www.w3scho...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2022/05/14/%E5%B8%83%E5%B0%94,%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8%EF%BC%8C%E5%AE%BD%E5%AD%97%E8%8A%82%EF%BC%8C%E4%BA%8C%E6%AC%A1%E7%BC%96%E7%A0%81%EF%BC%8C%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5%EF%BC%8CSQLmap%EF%BC%8CMSSql%EF%BC%8C%E8%BF%87WAF/" title="布尔，时间盲注，宽字节，二次编码，堆叠注入，SQLmap，MSSql，过WAF">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="布尔，时间盲注，宽字节，二次编码，堆叠注入，SQLmap，MSSql，过WAF"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" title="CSRF,XML,XXE,SSRF,命令执行漏洞">
+								CSRF,XML,XXE,SSRF,命令执行漏洞			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 6日, 2022				
+							</p>
+							<p class="relate-post-content">
+								date: 2022-05-06 14:55:26tags:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12345678910111213141516171819202122232425262728293031读取源码php...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2022/05/06/CSRF-XML-XXE-SSRF-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" title="CSRF,XML,XXE,SSRF,命令执行漏洞">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="CSRF,XML,XXE,SSRF,命令执行漏洞"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2022/05/04/Burp%E3%80%81Sql%E6%B3%A8%E5%85%A5%EF%BC%8C%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%EF%BC%8C%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/" title="Burp、Sql注入，联合注入，报错注入">
+								Burp、Sql注入，联合注入，报错注入			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 4日, 2022				
+							</p>
+							<p class="relate-post-content">
+								date: 2022-05-04 11:37:35tags:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+注：group_concat( [DISTINCT] 要连接的字段 [Order BY 排序字段 ASC&#x2F;DESC] ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2022/05/04/Burp%E3%80%81Sql%E6%B3%A8%E5%85%A5%EF%BC%8C%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%EF%BC%8C%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/" title="Burp、Sql注入，联合注入，报错注入">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Burp、Sql注入，联合注入，报错注入"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2022/05/04/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E3%80%81%E5%8C%85%E5%90%AB%E3%80%81XSS/" title="文件上传、包含、XSS">
+								文件上传、包含、XSS			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 4日, 2022				
+							</p>
+							<p class="relate-post-content">
+								date: 2022-05-04 10:14:49tags:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+补充https://github.com/Ascotbe/Medusahttps://github...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2022/05/04/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E3%80%81%E5%8C%85%E5%90%AB%E3%80%81XSS/" title="文件上传、包含、XSS">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="文件上传、包含、XSS"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/" title="文件上传,包含">
+								文件上传,包含			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 27日, 2022				
+							</p>
+							<p class="relate-post-content">
+								date: 2022-04-27 11:14:32tags:
+
+
+
+文件上传
+原理：
+
+补充
+
+webshell分类
+
+    一句话木马：代码量小，需要和webshell管理工具配合使用；    
+        php:&lt;?...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2022/04/27/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0,%E5%8C%85%E5%90%AB/" title="文件上传,包含">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="文件上传,包含"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2022/04/07/php-cookies-session-MySQL/" title="php,cookies,session,MySQL">
+								php,cookies,session,MySQL			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 7日, 2022				
+							</p>
+							<p class="relate-post-content">
+								date: 2022-04-07 21:31:30tags:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2022/04/07/php-cookies-session-MySQL/" title="php,cookies,session,MySQL">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="php,cookies,session,MySQL"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2022/03/25/sqli-labs-1-3/" title="sqli-labs前1-3关">
+								sqli-labs前1-3关			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 25日, 2022				
+							</p>
+							<p class="relate-post-content">
+								date: 2022-03-25 14:53:38tags:
+
+###第一关
+
+根据页面提示需要加入一个数字参数，直接加入?id&#x3D;1
+
+输入and 1&#x3D;1 来进行判断，显示正常
+
+直接输入单引号看是否会提示报错
+
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2022/03/25/sqli-labs-1-3/" title="sqli-labs前1-3关">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="sqli-labs前1-3关"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2022/03/14/my-first-blog/" title="my-first-blog">
+								my-first-blog			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 14日, 2022				
+							</p>
+							<p class="relate-post-content">
+								date: 2022-03-14 00:21:38tags:
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2022/03/14/my-first-blog/" title="my-first-blog">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="my-first-blog"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2022/03/13/hello-world/" title="Hello World">
+								Hello World			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 13日, 2022				
+							</p>
+							<p class="relate-post-content">
+								Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2022/03/13/hello-world/" title="Hello World">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="Hello World"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">关于</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2022, content by Sariay. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>	
+</html>
